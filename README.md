@@ -14,4 +14,4 @@ Contibuters of this project are:
 
 An example of this project is [todoList of Groupe 6](https://fmkarakus.github.io/list-prototype/public/index.html)
 
-Have a look at our [Development Strategy](./development-strategy.md)
+Have a look at our [Development Strategy](./project-planning/development-strategy.md)
