@@ -2,7 +2,8 @@
 # Many-TodoList-Prototype
 
 In this project you are going to learn more about **Object** and more specific **prototyping in Object**.
-You are going to build a website on which users can create multiple todoLists with a separate name or title for each todoList.
+You are going to build a website on which users can create multiple todoLists with a separate name or title for each todoList. 
+The users or website visitors are able to manage their todo lists.
 
 Contibuters of this project are:
 
