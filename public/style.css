@@ -33,7 +33,7 @@ div#lists {
   position: relative;
   z-index: 9;
   top: 60px;
-  width: 300px;
+  width: 280px;
   color: white;
   box-sizing: border-box;
   background: #080;
@@ -56,17 +56,12 @@ div#lists {
   text-align: center;
 }
 
-.deleteItemList {
-  width: 4vw;
-  color: red;
-  font-weight: bold;
-}
 
 i{
   font-size:48px;color:red;
 }
 
-@media (max-width: 420px) and (min-width: 100px) {
+@media (max-width: 610px) and (min-width: 100px) {
   div#lists {
     display: grid;
     grid-template-columns: auto;
@@ -75,7 +70,7 @@ i{
   }
 }
 
-@media (max-width: 790px) and (min-width: 420px) {
+@media (max-width: 810px) and (min-width: 610px) {
   div#lists {
     display: grid;
     grid-template-columns: auto auto;

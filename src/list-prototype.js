@@ -27,6 +27,7 @@ export const listPrototype = {
     let todosInput = document.createElement("input");
     todosInput.type = "text";
     todosInput.style.padding = "0.5em";
+    todosInput.style.maxWidth = "120px";
     todosInput.placeholder = "Enter Todos Items";
     todosInput.id = `${this.state.name}HaveTodo`;
 
@@ -78,13 +79,7 @@ export const listPrototype = {
         this.deleteItems.bind(this, position)
       );
 
-      if (todo.completed) {
-        let checkBoxEl = todoItems.children[0];
-        checkBoxEl.setAttribute("checked", true);
-        if (todo.completed) {
-          todoItems.className = "checkbox";
-        }
-      }
+
       itemLists.appendChild(todoItems);
     }, this);
   },
@@ -108,6 +103,19 @@ export const listPrototype = {
     document.getElementById(inputID).value = "";
     logger.push({
       action: "Add Items to the list",
+      stateName: this.state.name,
+      state: this.state,
+    });
+  },
+  deleteItems: function (position) {
+    debugger;
+
+    this.state.allTodo.splice(position, 1);
+
+    this.displayItems();
+
+    logger.push({
+      action: "Delete item",
       stateName: this.state.name,
       state: this.state,
     });
