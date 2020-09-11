@@ -18,9 +18,39 @@ export const listPrototype = {
     console.log(this.state.name);
   },
   render: function () {
-    const buttonEl = document.createElement('button');
-    buttonEl.innerHTML = this.state.name;
-    buttonEl.addEventListener('click', this.printState.bind(this));
-    return buttonEl;
+    let todoContainer = document.createElement("div");
+    todoContainer.id = "wrapper";
+    let todoTitle = document.createElement("h2");
+    todoTitle.innerHTML = this.state.name; //document.getElementById("list-name-input").value;
+
+    let todosInput = document.createElement("input");
+    todosInput.type = "text";
+    todosInput.style.padding = "0.5em";
+    todosInput.placeholder = "Enter Todos Items";
+    todosInput.id = `${this.state.name}HaveTodo`;
+
+    let addTodosBtn = document.createElement("button");
+    addTodosBtn.id = "addBtn";
+    addTodosBtn.innerHTML = "Add To list";
+    addTodosBtn.addEventListener("click", this.addItems.bind(this));
+
+    let todosOl = document.createElement("ol");
+    todosOl.id = `${this.state.name}ol`;
+
+    todoContainer.appendChild(todoTitle);
+    todoContainer.appendChild(todosInput);
+    todoContainer.appendChild(addTodosBtn);
+    todoContainer.appendChild(todosOl);
+    return todoContainer;
+  },
+
+  addItems: function(){
+
+  },
+  displayItems: function(){
+
+  },
+  deleteItems: function(){
+    
   }
 };
