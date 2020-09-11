@@ -54,9 +54,14 @@ const handleRequest = (req, res) => {
 
   const reqUrlMinusParams = req.url.split('?')[0];
 
-  const relPath = reqUrlMinusParams === '/'
-    ? '/index.html'
-    : decodeURIComponent(reqUrlMinusParams);
+  const relPath = reqUrlMinusParams.includes('/lib/')
+    ? decodeURIComponent(reqUrlMinusParams)
+    : reqUrlMinusParams.includes('/src/')
+      ? decodeURIComponent(reqUrlMinusParams)
+      : '/public' +
+      (reqUrlMinusParams === '/'
+        ? '/index.html'
+        : decodeURIComponent(reqUrlMinusParams));
 
   const requestedFilePath = path.normalize(path.join(__dirname, relPath));
 

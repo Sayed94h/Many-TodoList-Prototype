@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Many-TodoList</title>
+
+  <link href="./public/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <header id="main-header">
+      <h1>Welcome to our website</h1>
+      <h2>Below, you can create as many as Todo Lists as you want!</h2>
+  </header>
+
+  <main id='user-interface'>
+
+    <input id='list-name-input' placeholder="Title for your Todo List"/>
+
+    <button id="btn-createTodo">Create TodoList</button>
+
+    <div id='lists'></div>
+
+  </main>
+
+
+  <!-- project scripts -->
+  <script src="./src/handlers/create-new-list.js"></script>
+  <script src="./src/list-prototype.js"></script>
+
+  <!-- load the frontend testing & reviewing dependencies -->
+  <script src='./lib/review-buttons.js' type='module'></script>
+  <script src='./lib/gremlins.js'></script>
+
+  <!-- test the app object -->
+  <script type='module' src='./src/init.js'></script>
+
+</body>
+
+</html>
+
