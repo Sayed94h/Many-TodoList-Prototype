@@ -13,7 +13,8 @@ export const createNewListHandler = (event) => {
 
   const newList = Object.create(listPrototype);
   newList.state = {
-    name: event.target.value
+    name: event.target.value,
+    allTodo: []
   };
 
   const renderedNewList = newList.render();
