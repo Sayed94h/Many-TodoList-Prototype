@@ -29,26 +29,28 @@ div#lists {
   justify-content: space-around;
 }
 
-#warpper {
+#wrapper {
   position: relative;
   z-index: 9;
   top: 60px;
   width: 300px;
   color: white;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
+  background: #080;
+  border-radius: 1em;
   padding: 1rem;
   margin: 1rem;
 }
-#warpper button {
+#wrapper button {
   position: relative;
   left: 2%;
   outline: none;
-  background-color: #f4f5f6;
+  background: #0af;
   border-radius: 1em;
-  border: 4px solid #888888;
-  padding: 10px;
+  border: 2px solid #ffaa00;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5em;
   transition: 0.13s ease-in-out;
   cursor: pointer;
   text-align: center;
@@ -58,6 +60,15 @@ div#lists {
   div#lists {
     display: grid;
     grid-template-columns: auto;
+    align-content: center;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 790px) {
+  div#lists {
+    display: grid;
+    grid-template-columns: auto auto;
     align-content: center;
     justify-content: space-around;
   }
