@@ -45,12 +45,31 @@ export const listPrototype = {
   },
 
   addItems: function(){
+    let inputID = `${this.state.name}HaveTodo`;
+    let itemValue = document.getElementById(inputID).value;
+
+    if(itemValue === ""){
+      alert("Enter something to add in your Todo List!");
+      return;
+    }
+
+    this.state.todos.push({
+      items: itemValue,
+      completed: false,
+    });
+    this.displayItems();
+    document.getElementById(inputID).value = "";
+    logger.push({
+      action: "Add Items to the list",
+      stateName: this.state.name,
+      state: this.state,
+    });
 
   },
   displayItems: function(){
 
   },
   deleteItems: function(){
-    
+
   }
 };
