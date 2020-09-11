@@ -1,5 +1,6 @@
 'use strict';
 
+import { logger } from '../lib/logger.js';
 /* List Prototype
 
   This object will contain all the methods for your many lists
@@ -43,17 +44,63 @@ export const listPrototype = {
     todoContainer.appendChild(todosOl);
     return todoContainer;
   },
+  displayItems: function () {
+    debugger;
 
-  addItems: function(){
+    let itemLists = document.getElementById(`${this.state.name}ol`);
+    itemLists.innerHTML = "";
+
+    this.state.allTodo.forEach(function (todo, position) {
+      let todoItems = document.createElement("li");
+      todoItems.id = position;
+      let checkItem = document.createElement('input'); 
+      checkItem.type = "checkbox";
+      checkItem.checked = false; 
+      checkItem.className = "checkItem";
+      checkItem.value = todo.items;
+      let spanEl = document.createElement('span');
+      spanEl.innerHTML = todo.items;
+      todoItems.appendChild(checkItem);
+      todoItems.appendChild(spanEl);
+
+      //delete button
+      var deleteButton = document.createElement("button");
+      deleteButton.innerHTML = `<i class="fa fa-trash-o" style= "font-size:1.7em;color:red; font-weight: bold;"></i>`;
+      deleteButton.style.color = "red";
+
+      deleteButton.style.fontWeight = "bold";
+      
+      deleteButton.className = "deleteItemList";
+
+      todoItems.appendChild(deleteButton);
+      deleteButton.addEventListener(
+        "click",
+        this.deleteItems.bind(this, position)
+      );
+
+      if (todo.completed) {
+        let checkBoxEl = todoItems.children[0];
+        checkBoxEl.setAttribute("checked", true);
+        if (todo.completed) {
+          todoItems.className = "checkbox";
+        }
+      }
+      itemLists.appendChild(todoItems);
+    }, this);
+  },
+
+  addItems: function () {
+    debugger;
+
     let inputID = `${this.state.name}HaveTodo`;
     let itemValue = document.getElementById(inputID).value;
 
-    if(itemValue === ""){
+    if (itemValue === "") {
       alert("Enter something to add in your Todo List!");
       return;
     }
 
-    this.state.todos.push({
+    this.state.allTodo.push({
       items: itemValue,
       completed: false,
     });
@@ -64,12 +111,8 @@ export const listPrototype = {
       stateName: this.state.name,
       state: this.state,
     });
-
   },
-  displayItems: function(){
 
-  },
-  deleteItems: function(){
-
-  }
 };
+
+
