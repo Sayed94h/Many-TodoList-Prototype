@@ -59,11 +59,13 @@ export const listPrototype = {
       checkItem.type = "checkbox";
       
       checkItem.className = "checkItem";
-      checkItem.value = todo.items;
-      checkItem.addEventListener("change", this.toggleComplete.bind(this, todo));
-      if(todo.completed){
+    
+      checkItem.addEventListener("click", this.toggleComplete.bind(this, todo));
+
+      if(todo.completed === true){
         checkItem.checked = true;
-      }
+      } else { checkItem.checked = false;}
+
       let spanEl = document.createElement('span');
       spanEl.innerHTML = todo.items;
       todoItems.appendChild(checkItem);
@@ -126,21 +128,27 @@ export const listPrototype = {
     });
   },
 
-  toggleComplete: function(){
-    debugger;
-    this.state.allTodo.forEach(function (todo) {
+  toggleComplete: function(todo) {
 
-        if(checkItem.checked){
+    debugger;
+    
+        if(checkItem.checked == false){
+          //checkItem.checked = true;
+          todo.completed = false;
+        } else{
           todo.completed = true;
+          //checkItem.checked = false;
         }
+
         logger.push({
           action: "Checked as complete",
           stateName: this.state.name,
           state: this.state,
         });
-      
-    }, this);
-  }
+        this.displayItems();
+    }
+    
+  
 
 };
 
