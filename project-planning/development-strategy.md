@@ -11,7 +11,7 @@ This project is a group project to build multiple todo lists with their own list
 
 ## WIREFRAME
 
-![wireframe]()
+![wireframe](./wireframe.png)
 
 ---
 
