@@ -14,13 +14,13 @@
 <body>
 
   <header id="main-header">
-      <h1>Welcome to our website</h1>
-      <h2>Below, you can create as many as Todo Lists as you want!</h2>
+    <h1>Welcome to our website</h1>
+    <h2>Below, you can create as many as Todo Lists as you want!</h2>
   </header>
 
   <main id='user-interface'>
 
-    <input id='list-name-input' placeholder="Title for your Todo List"/>
+    <input id='list-name-input' placeholder="Title for your Todo List" />
 
     <button id="btn-createTodo">Create TodoList</button>
 
@@ -28,6 +28,22 @@
 
   </main>
 
+<!--  Look at the script tag  -->
+
+  <script>
+
+    let createBtn = document.getElementById('btn-createTodo');
+    createBtn.addEventListener('click', createNewListHandler());
+
+    //ERROR:
+    /*
+
+    (index):34 Uncaught ReferenceError: createNewListHandler is not defined
+    at (index):34
+
+    */
+
+  </script>
 
   <!-- load the frontend testing & reviewing dependencies -->
   <script src='./lib/review-buttons.js' type='module'></script>
@@ -39,4 +55,3 @@
 </body>
 
 </html>
-
