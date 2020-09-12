@@ -13,6 +13,7 @@ import { logger } from '../lib/logger.js';
   You will need to use binding (or arrow functions) to connect handlers to views
 
 */
+var checkItem;
 
 export const listPrototype = {
   printState: function () {
@@ -54,11 +55,15 @@ export const listPrototype = {
     this.state.allTodo.forEach(function (todo, position) {
       let todoItems = document.createElement("li");
       todoItems.id = position;
-      let checkItem = document.createElement('input'); 
+      checkItem = document.createElement('input'); 
       checkItem.type = "checkbox";
-      checkItem.checked = false; 
+      
       checkItem.className = "checkItem";
       checkItem.value = todo.items;
+      checkItem.addEventListener("change", this.toggleComplete.bind(this, todo));
+      if(todo.completed){
+        checkItem.checked = true;
+      }
       let spanEl = document.createElement('span');
       spanEl.innerHTML = todo.items;
       todoItems.appendChild(checkItem);
@@ -120,6 +125,22 @@ export const listPrototype = {
       state: this.state,
     });
   },
+
+  toggleComplete: function(){
+    debugger;
+    this.state.allTodo.forEach(function (todo) {
+
+        if(checkItem.checked){
+          todo.completed = true;
+        }
+        logger.push({
+          action: "Checked as complete",
+          stateName: this.state.name,
+          state: this.state,
+        });
+      
+    }, this);
+  }
 
 };
 
