@@ -58,8 +58,6 @@ __As a user I want to see the initial page when I load the site__
 
 ---
 
-## ...
-
 ## 2. Render Todo List
 
 > assigned to _Sayed Kazimi_
@@ -280,7 +278,7 @@ __As a user I want to be able to check each todo item in each todo list as compl
 
 ### JavaScript
 
-1. deleteItems function:
+1. toggleComplete function:
 ```js
 toggleComplete: function(){
     debugger;
@@ -299,3 +297,11 @@ toggleComplete: function(){
 ```
 
 ---
+
+## Finishing Touch
+
+> assigned to Sayed Kazimi
+
+- Create Issues
+- Validate HTML, CSS
+
