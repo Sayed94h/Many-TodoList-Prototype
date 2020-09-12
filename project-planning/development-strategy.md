@@ -1,8 +1,7 @@
 # JavaScript Todo Lis Manager
 
-...
+This project is a group project to build multiple todo lists with their own list's title using prototype functionality and feature
 
----
 
 ## User Story Dependencies
 
